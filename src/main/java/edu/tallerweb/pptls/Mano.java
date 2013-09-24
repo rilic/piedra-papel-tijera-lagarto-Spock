@@ -23,9 +23,9 @@ package edu.tallerweb.pptls;
  * PIEDRA(0), SPOCK(1), PAPEL(2), LAGARTO(3), TIJERA(4);
  */
 
-/**	
+/**
  * TABLA DOBLE ENTRADA (CADA CELDA INDICA EL GANADOR EN AMBAS DIRECCIONES)
- * 
+ *
  * 			|	PIEDRA	|	SPOCK	|	PAPEL	|	LAGARTO	|	TIJERA	|
  * _________|___________|___________|___________|___________|___________|
  * 	PIEDRA	|	EMPATA	|	Spock	|	Papel	|	Piedra	|	Piedra	|
@@ -42,7 +42,7 @@ package edu.tallerweb.pptls;
 
 /**
  * TABLA FILA VS COLUMNA (CADA CELDA INDICA EL RESULTADO DE FILA VS COLUMNA)
- * 
+ *
  * 			|	PIEDRA	|	SPOCK	|	PAPEL	|	LAGARTO	|	TIJERA	|
  * _________|___________|___________|___________|___________|___________|
  * 	PIEDRA	|	EMPATA	|	PIERDE	|	PIERDE	|	GANA	|	GANA	|
@@ -59,7 +59,7 @@ package edu.tallerweb.pptls;
 
 /**
  * TABLA DOBLE ENTRADA CON VALORES NUMERICOS ASIGNADOS ( PIEDRA=0 SPOCK=1 PAPEL=2 LAGARTO=3 TIJERA=4 )
- * 
+ *
  * 			|		0	|		1	|		2	|		3	|		4	|
  * _________|___________|___________|___________|___________|___________|
  * 		0	|		-	|		1	|		2	|		0	|		0	|
@@ -76,7 +76,7 @@ package edu.tallerweb.pptls;
 
 /**
  * MATRIZ DE COLUMNAS NUMERICAS Y CELDAS RESULTADO FILA VS COLUMNA (MATRIZ CON LA QUE FUNCIONA EL CODIGO)
- * 
+ *
  * 			|	0		|	1		|	2		|	3		|	4		|
  * _________|___________|___________|___________|___________|___________|
  * 	0		|	EMPATA	|	PIERDE	|	PIERDE	|	GANA	|	GANA	|
@@ -103,22 +103,22 @@ public class Mano {
 	 * la que determine su condición en el juego.
 	 * @param forma, la Forma que adopta la Mano.
 	 */
-	
+
 	/** Almacena la forma de la mano actual */
 	private Forma forma;
-	
+
 	/** Almacena la matriz con las reglas del juego y sus posibles combinaciones */
 	private Resultado matrizReglas[][];
-	
+
 	public Mano(final Forma forma) {
 		this.forma = forma;
-		this.matrizReglas = new Resultado[][] { 
+		this.matrizReglas = new Resultado[][] {
 				{ Resultado.EMPATA,	Resultado.PIERDE,	Resultado.PIERDE,	Resultado.GANA,		Resultado.GANA 		},
 				{ Resultado.GANA,	Resultado.EMPATA,	Resultado.PIERDE,	Resultado.PIERDE,	Resultado.GANA 		},
 				{ Resultado.GANA,	Resultado.GANA,		Resultado.EMPATA,	Resultado.PIERDE,	Resultado.PIERDE 	},
 				{ Resultado.PIERDE,	Resultado.GANA,		Resultado.GANA,		Resultado.EMPATA,	Resultado.PIERDE 	},
 				{ Resultado.PIERDE,	Resultado.PIERDE,	Resultado.GANA,		Resultado.GANA,		Resultado.EMPATA 	} };
-		
+
 		/** throw new RuntimeException("No implementado aún"); */
 	}
 
@@ -128,9 +128,9 @@ public class Mano {
 	 * @param otra, la otra Mano.
 	 * @return un Resultado, de acuerdo al estado del juego.
 	 */
-	
+
 	public Resultado jugarCon(final Mano otra) {
-		
+
 		/** Retorna un valor de los posibles Resultados desde la matriz en base a las formas que se enfrentan en ambas manos */
 		return this.matrizReglas[this.forma.getValor()][otra.forma.getValor()];
 
